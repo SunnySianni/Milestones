@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Viewer</title>
+    <style>
+        /* Center the video and limit its width to half of the viewport */
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+        }
+
+        video {
+            width: 50%;
+            height: auto;
+        }
+
+        /* Basic page styling */
+        body {
+            font-family: Arial;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .video-description {
+            margin-top: 20px;
+        }
+
+        /* Video toggle and dropdown styling */
+        .controls {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>YouTube Video</h1>
+        <!-- TODO: Implement a navigation menu for video categories and user profile -->
+    </header>
+
+    <!-- Video Section -->
+    <div class="video-container">
+        <video id="myVideo" name="videoPlayer" class="video-element" controls>
+            <source src="https://youtu.be/6stlCkUDG_s?si=Yk4CS_YRu97zCdFY" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Video Controls Section -->
+    <div class="controls">
+        <!-- Toggle auto-play -->
+        <label for="autoplayToggle">Auto-play:</label>
+        <input type="checkbox" id="autoplayToggle" name="autoplayToggle" onchange="toggleAutoplay()">
+        
+        <!-- Video category selection -->
+        <label for="category">Choose a category:</label>
+        <select id="category" name="category">
+            <option value="music">Music</option>
+            <option value="education">Education</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="tech">Tech</option>
+        </select>
+    </div>
+
+    <!-- Video Description Section -->
+    <div class="video-description">
+        <details>
+            <summary>Video Description</summary>
+            <p>This is a sample video description for the embedded YouTube video. It provides details about the content of the video and its relevance to users.</p>
+        </details>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Follow us on:</p>
+        <a href="#">Linkeden</a>
+        <a href="#">Youtube</a>
+        <a href="#">Github</a>
+        <!-- TODO: Implement actual social media links in the future -->
+    </footer>
+
+    <script>
+        // JavaScript to toggle auto-play feature on/off
+        function toggleAutoplay() {
+            var video = document.getElementById("myVideo");
+            var autoPlayCheckbox = document.getElementById("autoplayToggle");
+            if (autoPlayCheckbox.checked) {
+                video.setAttribute("autoplay", true);
+            } else {
+                video.removeAttribute("autoplay");
+            }
+        }
+    </script>
+</body>
+</html>

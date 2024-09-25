@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Viewer</title>
+    <style>
+        /* Flexbox layout to accommodate video and playlist side by side */
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 20px;
+        }
+        /* Video container */
+        .video-container {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        video {
+            width: 100%;
+            height: auto;
+        }
+        /* Playlist container */
+        .playlist {
+            flex: 1;
+            margin-left: 20px;
+            text-align: left;
+        }
+        .playlist h3 {
+            margin-bottom: 10px;
+        }
+        .playlist ul {
+            list-style: none;
+            padding: 0;
+        }
+        .playlist ul li {
+            margin-bottom: 10px;
+            cursor: pointer;
+            color: #0066CC;
+            text-decoration: underline;
+        }
+        /* Page styling */
+        body {
+            font-family: Arial;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header, footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .video-description {
+            margin-top: 20px;
+        }
+        .controls {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>YouTube Video</h1>
+    </header>
+    <!-- Main Content Section: Video and Playlist -->
+    <div class="main-content">
+        <!-- Video Section -->
+        <div class="video-container">
+            <video id="myVideo" name="videoPlayer" class="video-element" controls>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                
+            </video>
+        </div>
+        <!-- Playlist Section -->
+        <div class="playlist">
+            <h3>Playlist</h3>
+            <ul id="videoPlaylist">
+                <li onclick="changeVideo('https://www.w3schools.com/html/mov_bbb.mp4')">Bunny</li>
+                <li onclick="changeVideo('https://youtu.be/SEVZjwX63G4?si=11iFr3oyOpCEFQiA')">Rawr</li>
+                <li onclick="changeVideo('https://www.youtube.com/embed/PavYAOpVpJI?si=IV_aVINBNSEqrHWl')">Get Help</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Video Controls Section -->
+    <div class="controls">
+        <label for="autoplayToggle">Auto-play:</label>
+        <input type="checkbox" id="autoplayToggle" name="autoplayToggle" onchange="toggleAutoplay()">
+        <label for="category">Choose a category:</label>
+        <select id="category" name="category">
+            <option value="music">Music</option>
+            <option value="education">Education</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="tech">Tech</option>
+        </select>
+    </div>
+    <!-- Video Description Section -->
+    <div class="video-description">
+        <details>
+            <summary>Video Description</summary>
+            <p>Barbie, Hello Kitty, Bratz, Dress to Impress, and Monster High girl UNITE!!!!</p>
+        </details>
+    </div>
+    <!-- Footer Section -->
+    <footer>
+        <p>Follow us on:</p>
+        <a href="#">LinkedIn</a>
+        <a href="#">YouTube</a>
+        <a href="#">GitHub</a>
+    </footer>
+    <script>
+        // JavaScript to toggle auto-play feature on/off
+        function toggleAutoplay() {
+            var video = document.getElementById("myVideo");
+            var autoPlayCheckbox = document.getElementById("autoplayToggle");
+            if (autoPlayCheckbox.checked) {
+                video.setAttribute("autoplay", true);
+            } else {
+                video.removeAttribute("autoplay");
+            }
+        }
+        // Function to change the video source when a playlist item is clicked
+        function changeVideo(videoUrl) {
+            var video = document.getElementById("myVideo");
+            video.src = videoUrl;
+            video.play();  // Auto-play the new video
+        }
+    </script>
+</body>
+</html>

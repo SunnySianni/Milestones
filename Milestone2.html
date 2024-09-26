@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Defines the character set as UTF-8 and sets viewport properties for mobile responsiveness -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sets the title of the webpage as 'Enhanced Video Viewer' -->
+    <title>Enhanced Video Viewer</title>
+
+    <!-- Internal CSS block to style the layout and appearance of the page -->
+    <style>
+        /* Sets the body font, removes margins, and adds a background color */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Container uses grid layout to structure the page: header, main, and footer */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr auto;
+            min-height: 100vh;
+        }
+
+        /* Styles the header and footer with a dark background, white text, and padding */
+        header, footer {
+            background-color: #202020;
+            color: white;
+            padding: 1rem;
+        }
+
+        /* Styles the header's main title */
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        /* Main content area uses grid to split the layout into two columns (70% for video, 30% for suggested videos) */
+        main {
+            display: grid;
+            grid-template-columns: 70% 30%;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        /* Styles the video container with a black background and maintains a 16:9 aspect ratio */
+        .video-container {
+            background-color: #000;
+            aspect-ratio: 16 / 9;
+            width: 100%;
+        }
+
+        /* Styles the video information section (below the video player) with padding and a border radius */
+        .video-info {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        /* Styles the suggested videos list with grid layout and gap between items */
+        .suggested-videos {
+            display: grid;
+            gap: 1rem;
+        }
+
+        /* Styles each video item in the suggested list with a grid layout for the thumbnail and details */
+        .video-item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 0.5rem;
+            background-color: white;
+            padding: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Changes the background color when a suggested video is hovered */
+        .video-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Styles the video thumbnail with fixed dimensions and rounded corners */
+        .thumbnail {
+            width: 120px;
+            height: 67px;
+            background-color: #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        /* Ensures the thumbnail image fills the container while maintaining aspect ratio */
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Styles the suggested video title */
+        .video-details h3 {
+            margin: 0 0 0.25rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* Styles the suggested video description */
+        .video-details p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: #606060;
+        }
+
+        /* Centers the footer content and applies link styles */
+        footer {
+            text-align: center;
+        }
+
+        /* Styles the links inside the footer */
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        /* Media query for screens smaller than 768px, switches the main layout to a single column */
+        @media (max-width: 768px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Main container that holds the header, main content, and footer -->
+    <div class="container">
+        <!-- Header section with the page title -->
+        <header>
+            <h1>Enhanced Video Viewer</h1>
+        </header>
+
+        <!-- Main content area: left side for the video player and info, right side for suggested videos -->
+        <main>
+            <!-- Video player and description section -->
+            <div>
+                <!-- Video container with a video element that allows playback controls -->
+                <div class="video-container">
+                    <video width="100%" height="100%" controls>
+                        <!-- Source for the video, pointing to an example video (Big Buck Bunny) -->
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <!-- Information section for the current video being played -->
+                <div class="video-info">
+                    <h2>Big Buck Bunny</h2>
+                    <p>This is a sample video of the animated short film "Big Buck Bunny". It's often used as a demo video due to its open-source nature and high quality.</p>
+                </div>
+            </div>
+
+            <!-- Suggested videos section -->
+            <div class="suggested-videos">
+                <!-- Individual video suggestion with a thumbnail and title -->
+                <div class="video-item" onclick="changeVideo('https://www.youtube.com/embed/6stlCkUDG_s')">
+                    <div class="thumbnail">
+                        <!-- Thumbnail image for the suggested video -->
+                        <img src="https://img.youtube.com/vi/6stlCkUDG_s/0.jpg" alt="Thumbnail for Video 1">
+                    </div>
+                    <div class="video-details">
+                        <!-- Suggested video title and description -->
+                        <h3>Suggested Video 1</h3>
+                        <p>YouTube Video • Click to watch</p>
+                    </div>
+                </div>
+
+                <!-- Another suggested video with a different thumbnail -->
+                <div class="video-item" onclick="changeVideo('https://www.youtube.com/embed/pBOfoKBPRcs')">
+                    <div class="thumbnail">
+                        <img src="https://img.youtube.com/vi/pBOfoKBPRcs/0.jpg" alt="Thumbnail for Video 2">
+                    </div>
+                    <div class="video-details">
+                        <h3>Suggested Video 2</h3>
+                        <p>YouTube Video • Click to watch</p>
+                    </div>
+                </div>
+
+                <!-- Another suggested video -->
+                <div class="video-item" onclick="changeVideo('https://www.youtube.com/embed/SEVZjwX63G4')">
+                    <div class="thumbnail">
+                        <img src="https://img.youtube.com/vi/SEVZjwX63G4/0.jpg" alt="Thumbnail for Video 3">
+                    </div>
+                    <div class="video-details">
+                        <h3>Suggested Video 3</h3>
+                        <p>YouTube Video • Click to watch</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer section with social media links -->
+        <footer>
+            <p>Follow us on:</p>
+            <a href="#">LinkedIn</a>
+            <a href="#">YouTube</a>
+            <a href="#">GitHub</a>
+        </footer>
+    </div>
+
+    <!-- JavaScript block to handle video changes when suggested videos are clicked -->
+    <script>
+        /**
+         * Function to change the video being displayed
+         * @parameter {string} videoUrl - The URL of the new video to display
+         */
+        function changeVideo(videoUrl) {
+            // Get the video container element
+            const videoContainer = document.querySelector('.video-container');
+            // Replace the current video with an iframe of the new video
+            videoContainer.innerHTML = `<iframe width="100%" height="100%" src="${videoUrl}" frameborder="0" allowfullscreen></iframe>`;
+            
+            // Update the video info to show that a new video was selected
+            const videoInfo = document.querySelector('.video-info');
+            videoInfo.innerHTML = `
+                <h2>Selected Video</h2>
+                <p>This is the video you selected from the suggested videos list. Enjoy watching!</p>
+            `;
+        }
+    </script>
+</body>
+</html>

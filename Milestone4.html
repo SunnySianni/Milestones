@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Video Viewer</title>
+    <link rel="stylesheet" href="Milestone4.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Enhanced Video Viewer</h1>
+            <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+        </header>
+
+        <main>
+            <div class="video-container">
+                <video id="main-video" controls>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-info">
+                <h2 id="video-title">Big Buck Bunny</h2>
+                <p id="video-description">This is a sample video of the animated short film "Big Buck Bunny". It's often used as a demo video due to its open-source nature and high quality.</p>
+            </div>
+            <div class="suggested-videos">
+                <h3>Suggested Videos</h3>
+                <div id="video-list"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Follow us on:</p>
+            <a href="https://www.linkedin.com/in/sianni-strickland-934059284/">LinkedIn</a>
+            <a href="#">YouTube</a>
+            <a href="#">GitHub</a>
+        </footer>
+    </div>
+
+    <script src="Milestone4.js"></script>
+</body>
+</html>

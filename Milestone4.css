@@ -1,0 +1,207 @@
+/* Define default light theme variables using CSS custom properties */
+:root {
+    --background-color: #f9f9f9;
+    --text-color: #202020;
+    --header-footer-bg: #202020;
+    --header-footer-text: white;
+    --video-info-bg: white;
+    --video-item-bg: white;
+    --video-item-hover: #f0f0f0;
+    --video-details-color: #606060;
+}
+
+/* Dark theme variables, applied when the 'data-theme' attribute is set to 'dark' */
+[data-theme="dark"] {
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --header-footer-bg: #1e1e1e;
+    --header-footer-text: #e0e0e0;
+    --video-info-bg: #2a2a2a;
+    --video-item-bg: #2a2a2a;
+    --video-item-hover: #3a3a3a;
+    --video-details-color: #a0a0a0;
+}
+
+/* Basic body styles applying the selected theme variables */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Main container layout using CSS Grid to organize the page */
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+/* Header and footer styles: background and text colors based on theme variables */
+header, footer {
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    padding: 1rem;
+}
+
+/* Header uses flexbox to position title and theme toggle button */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style for the page title in the header */
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Main section uses grid to split the layout (70% video, 30% suggestions) */
+main {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* Styles for the video container with a 16:9 aspect ratio */
+.video-container {
+    background-color: #000;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+}
+
+/* Styles for the video information box (e.g., description) */
+.video-info {
+    background-color: var(--video-info-bg);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+/* Suggested videos list layout using grid with gaps between items */
+.suggested-videos {
+    display: grid;
+    gap: 1rem;
+}
+
+/* Styles for each suggested video item */
+.video-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 0.5rem;
+    background-color: var(--video-item-bg);
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for suggested video items */
+.video-item:hover {
+    background-color: var(--video-item-hover);
+}
+
+/* Thumbnail styles: fixed size, rounded corners, and overflow handling */
+.thumbnail {
+    width: 120px;
+    height: 67px;
+    background-color: #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Ensures thumbnail image fits within the container while maintaining aspect ratio */
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Style for the title of each suggested video */
+.video-details h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 0.9rem;
+}
+
+/* Style for the description of each suggested video */
+.video-details p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--video-details-color);
+}
+
+/* Footer styles, centered text and links */
+footer {
+    text-align: center;
+}
+
+/* Style for the links in the footer */
+footer a {
+    color: var(--header-footer-text);
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+/* Button for toggling between light and dark themes */
+#theme-toggle {
+    background: none;
+    border: none;
+    color: var(--header-footer-text);
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+/* Responsive layout: switches to single-column layout on small screens */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Styles for the user preference form */
+.form-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-content {
+    background-color: var(--video-info-bg);
+    color: var(--text-color);
+    padding: 2rem;
+    border-radius: 8px;
+    width: 300px;
+}
+
+.form-content h2 {
+    margin-top: 0;
+}
+
+.form-content input,
+.form-content select,
+.form-content button {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: var(--video-item-bg);
+    color: var(--text-color);
+    border: 1px solid var(--video-details-color);
+}
+
+.form-content button {
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    border: none;
+    cursor: pointer;
+}
+
+.form-content button:hover {
+    opacity: 0.9;
+}

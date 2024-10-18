@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata about the document -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title> 
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="milestone5.css">
+</head>
+<body>
+    <!-- Navigation bar with links -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#profile">Profile</a>
+    </nav>
+
+    <!-- Main container for the user profile form -->
+    <div class="container">
+        <h1>User Profile</h1>
+        <form id="profileForm">
+            <!-- Username input field -->
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <span id="usernameError" class="error"></span> <!-- Error message for username -->
+
+            <!-- Email input field -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <!-- Password input field -->
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <!-- Theme selection options -->
+            <label>Theme Preference:</label>
+            <div class="theme-options">
+                <!-- Purple theme option -->
+                <div class="theme-option">
+                    <input type="radio" id="purple" name="theme" value="purple">
+                    <label for="purple">Purple</label>
+                </div>
+
+                <!-- Red theme option -->
+                <div class="theme-option">
+                    <input type="radio" id="red" name="theme" value="red">
+                    <label for="red">Red</label>
+                </div>
+
+                <!-- Galaxy theme option -->
+                <div class="theme-option">
+                    <input type="radio" id="galaxy" name="theme" value="galaxy">
+                    <label for="galaxy">Galaxy</label>
+                </div>
+
+                <!-- Cottagecore theme option -->
+                <div class="theme-option">
+                    <input type="radio" id="cottagecore" name="theme" value="cottagecore">
+                    <label for="cottagecore">Cottagecore</label>
+                </div>
+            </div>
+
+            <!-- Submit button to save profile -->
+            <button type="submit">Save Profile</button>
+        </form>
+    </div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="milestone5.js"></script>
+</body>
+</html>

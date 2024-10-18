@@ -1,0 +1,93 @@
+/* Base styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease; /* Smooth transition for theme changes */
+}
+
+/* Styling for the navigation bar */
+nav {
+    background-color: #333;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Style for navigation links */
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+}
+
+/* Centered container for the profile form */
+.container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+/* Flexbox styling for form layout */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Spacing for form labels */
+label {
+    margin-top: 1rem;
+}
+
+/* Styling for input fields and button */
+input, button {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+}
+
+/* Error message styling */
+.error {
+    color: red;
+    font-size: 0.8rem;
+}
+
+/* Layout for theme selection */
+.theme-options {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+/* Styling for individual theme option */
+.theme-option {
+    display: flex;
+    align-items: center;
+}
+
+/* Specific theme styles */
+.theme-purple {
+    background-color: #f3e5f5;
+    color: #4a148c;
+}
+
+.theme-red {
+    background-color: #ffebee;
+    color: #b71c1c;
+}
+
+.theme-galaxy {
+    background-color: #000033;
+    color: #e6e6ff;
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+        radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+        radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+}
+
+.theme-cottagecore {
+    background-color: #f1e8d9;
+    color: #3b5d37;
+    background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d7ccc8' fill-opacity='0.4'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
